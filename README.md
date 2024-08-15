@@ -4,7 +4,7 @@
 >
 > _This repository is cloned from the original repository [here](https://github.com/smartcontractkit/ccip-cross-chain-name-service.git) for the purpose of doing an assignment for the Chainlink Bootcamp._
 
-> **For Judges** _The solutions are available in `test/CrossChainNameService.spec.ts` file._
+> **For Judges** _The solutions are available in *[test/CrossChainNameService.spec.ts](test/CrossChainNameService.spec.ts)* file._
 
 ## Prerequisites
 
