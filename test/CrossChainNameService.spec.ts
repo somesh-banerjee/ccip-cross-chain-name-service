@@ -4,6 +4,7 @@ import { BigNumber } from "ethers";
 import { PromiseOrValue } from "../typechain-types/common";
 
 const regName = "alice.ccns";
+let alice: any;
 let chainSelector: BigNumber;
 
 let localSimulator;
@@ -25,6 +26,9 @@ let config: {
 try {
   describe("CCIP Bootcamp Day 2 HW", function () {
     it("Deploy Local Simulator and call configuration", async function () {
+      // define alice as the first account in the local network
+      [alice] = await ethers.getSigners();
+
       // Create an instance of CCIPLocalSimulator.sol smart contract.
       const localSimulatorFactory = await ethers.getContractFactory(
         "CCIPLocalSimulator"
@@ -97,6 +101,11 @@ try {
         resultSource,
         0,
         "Source Receiver Lookup result must not be zero"
+      );
+      assert.equal(
+        resultSource,
+        alice.address,
+        "Source Lookup result must be the same as the sender's address"
       );
 
       const resultDest = await CCNSLookupReceiver.lookup(regName);
