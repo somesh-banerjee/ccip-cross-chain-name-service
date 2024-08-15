@@ -87,6 +87,9 @@ try {
     });
 
     it("Register name and verify", async function () {
+      // please note in the homework it is mentioned that the name and the address should be passed as arguments
+      // but the function signature of the register function in CrossChainNameServiceRegister.sol
+      // is register(string memory name) and the address is derived from the sender's address.
       await CCNSRegister.register(regName);
 
       const resultSource = await CCNSLookupSource.lookup(regName);
